@@ -1,6 +1,0 @@
-D:\Projekty\Kalkulator\Kalkulator\bin\Debug\Kalkulator.exe.config
-D:\Projekty\Kalkulator\Kalkulator\bin\Debug\Kalkulator.exe
-D:\Projekty\Kalkulator\Kalkulator\bin\Debug\Kalkulator.pdb
-D:\Projekty\Kalkulator\Kalkulator\obj\Debug\Kalkulator.csprojResolveAssemblyReference.cache
-D:\Projekty\Kalkulator\Kalkulator\obj\Debug\Kalkulator.exe
-D:\Projekty\Kalkulator\Kalkulator\obj\Debug\Kalkulator.pdb
