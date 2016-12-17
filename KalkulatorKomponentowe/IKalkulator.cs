@@ -1,24 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Kalkulator
+﻿namespace Kalkulator
 {
     interface IKalkulator
     {
+        double WykonajObliczenia(double a, double b, NazwaMetody method);
+    }
 
-        double Dodaj(double a, double b);
-
-        double Odejmij(double a, double b);
-
-        double Pomnoz(double a, double b);
-
-        double Podziel(double a, double b);
-
-        double Pierwiastek(double a);
-
+    public enum NazwaMetody
+    {
+        Dodawanie = 1,
+        Odejmowanie = 2,
+        Pomnoz = 3,
+        Podziel = 4,
+        Pierwiastek = 5
     }
 }

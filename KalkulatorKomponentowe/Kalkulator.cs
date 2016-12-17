@@ -1,45 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kalkulator
 {
     public class Kalkulator : IKalkulator
     {
-        public enum NazwaMetody
-        {
-            Dodawanie = 1,
-            Odejmowanie = 2,
-            Pomnoz = 3,
-            Podziel = 4,
-            Pierwiastek = 5
-        }
+        public double FirstValue = 0;
+        public double SecondValue = 0;
+        public NazwaMetody Method;
 
-        public double Dodaj(double a, double b)
+        public double WykonajObliczenia(double a, double b, NazwaMetody method)
         {
-            return a + b;
-        }
-
-        public double Odejmij(double a, double b)
-        {
-            return a - b;
-        }
-
-        public double Pierwiastek(double a)
-        {
-            return Math.Sqrt(a);
-        }
-
-        public double Podziel(double a, double b)
-        {
-            return a/b;
-        }
-
-        public double Pomnoz(double a, double b)
-        {
-            return a*b;
+            double returnValue;
+            switch (method)
+            {
+                case NazwaMetody.Dodawanie:
+                    returnValue = a + b;
+                    break;
+                case NazwaMetody.Odejmowanie:
+                    returnValue = a - b;
+                    break;
+                case NazwaMetody.Pomnoz:
+                    returnValue = a * b;
+                    break;
+                case NazwaMetody.Podziel:
+                    returnValue = a / b;
+                    break;
+                case NazwaMetody.Pierwiastek:
+                    returnValue = Math.Sqrt(a);
+                    break;
+                default:
+                    returnValue = 0;
+                    break;
+            }
+            return returnValue;
         }
     }
 }

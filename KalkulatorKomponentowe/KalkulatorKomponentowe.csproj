@@ -76,7 +76,6 @@
     </Compile>
     <Compile Include="IKalkulator.cs" />
     <Compile Include="IKlawiatura.cs" />
-    <Compile Include="IWyswietlacz.cs" />
     <Compile Include="Kalkulator.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

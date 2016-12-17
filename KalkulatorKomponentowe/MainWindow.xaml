@@ -8,7 +8,7 @@
         ResizeMode="NoResize"
         xmlns:custom="clr-namespace:KalkulatorKomponentowe" Title="SuperKalkulator" WindowStartupLocation="CenterScreen">
     <Grid Height="358" VerticalAlignment="Top">
-        <custom:Wyswietlacz Margin="7,10,10,248" Height="Auto"/>
-        <custom:Klawiatura Margin="10,115,9,10" Height="Auto"/>
+        <local:Wyswietlacz x:Name="Wyswietlacz" Margin="7,10,10,248" Height="Auto"/>
+        <local:Klawiatura x:Name="Klawiatura" Wyswietlacz="{x:Reference Name=Wyswietlacz}"  Margin="10,115,9,10" Height="Auto"/>
     </Grid>
 </Window>

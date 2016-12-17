@@ -5,111 +5,119 @@ using System.Windows.Controls;
 
 namespace KalkulatorKomponentowe
 {
-
     /// <summary>
     /// Interaction logic for Klawiatura.xaml
     /// </summary>
     /// 
     public partial class Klawiatura : UserControl, IKlawiatura
     {
+        public Wyswietlacz Wyswietlacz { get; set; }
+        public Kalkulator.Kalkulator Calc;
+
         public Klawiatura()
         {
             InitializeComponent();
+            Calc = new Kalkulator.Kalkulator();
         }
 
-        public string PobierzDane()
+        public void button1_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            Wyswietlacz.TextBlock_display.Text += "1";
         }
 
-        public string WyslijDane()
+        public void button2_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            Wyswietlacz.TextBlock_display.Text += "2";
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
-        { 
-            //
-        }
-
-        private void button2_Click(object sender, RoutedEventArgs e)
+        public void button3_Click(object sender, RoutedEventArgs e)
         {
-            //
+            Wyswietlacz.TextBlock_display.Text += "3";
         }
 
-        private void button3_Click(object sender, RoutedEventArgs e)
+        public void button4_Click(object sender, RoutedEventArgs e)
         {
-            //
+            Wyswietlacz.TextBlock_display.Text += "4";
         }
 
-        private void button4_Click(object sender, RoutedEventArgs e)
+        public void button5_Click(object sender, RoutedEventArgs e)
         {
-            //
+            Wyswietlacz.TextBlock_display.Text += "5";
         }
 
-        private void button5_Click(object sender, RoutedEventArgs e)
+        public void button6_Click(object sender, RoutedEventArgs e)
         {
-            //
+            Wyswietlacz.TextBlock_display.Text += "6";
         }
 
-        private void button6_Click(object sender, RoutedEventArgs e)
+        public void button7_Click(object sender, RoutedEventArgs e)
         {
-            //
+            Wyswietlacz.TextBlock_display.Text += "7";
         }
 
-        private void button7_Click(object sender, RoutedEventArgs e)
+        public void button8_Click(object sender, RoutedEventArgs e)
         {
-            //
+            Wyswietlacz.TextBlock_display.Text += "8";
         }
 
-        private void button8_Click(object sender, RoutedEventArgs e)
+        public void button9_Click(object sender, RoutedEventArgs e)
         {
-            //
+            Wyswietlacz.TextBlock_display.Text += "9";
         }
 
-        private void button9_Click(object sender, RoutedEventArgs e)
+        public void button_plus_Click(object sender, RoutedEventArgs e)
         {
-            //
+            Calc.FirstValue = Convert.ToDouble(Wyswietlacz.TextBlock_display.Text);
+            Calc.Method = NazwaMetody.Dodawanie;
+            Wyswietlacz.TextBlock_display.Text = "";
         }
 
-        private void button_plus_Click(object sender, RoutedEventArgs e)
+        public void button_minus_Click(object sender, RoutedEventArgs e)
         {
-            //
+            Calc.FirstValue = Convert.ToDouble(Wyswietlacz.TextBlock_display.Text);
+            Calc.Method = NazwaMetody.Odejmowanie;
+            Wyswietlacz.TextBlock_display.Text = "";
         }
 
-        private void button_minus_Click(object sender, RoutedEventArgs e)
+        public void button_multiply_Click(object sender, RoutedEventArgs e)
         {
-            //
+            Calc.FirstValue = Convert.ToDouble(Wyswietlacz.TextBlock_display.Text);
+            Calc.Method = NazwaMetody.Pomnoz;
+            Wyswietlacz.TextBlock_display.Text = "";
         }
 
-        private void button_multiply_Click(object sender, RoutedEventArgs e)
+        public void button_divide_Click(object sender, RoutedEventArgs e)
         {
-            //
+            Calc.FirstValue = Convert.ToDouble(Wyswietlacz.TextBlock_display.Text);
+            Calc.Method = NazwaMetody.Podziel;
+            Wyswietlacz.TextBlock_display.Text = "";
         }
 
-        private void button_divide_Click(object sender, RoutedEventArgs e)
+        public void button_square_Click(object sender, RoutedEventArgs e)
         {
-            //
+            Calc.FirstValue = Convert.ToDouble(Wyswietlacz.TextBlock_display.Text);
+            Calc.Method = NazwaMetody.Pierwiastek;
+            Wyswietlacz.TextBlock_display.Text = "";
         }
 
-        private void button_square_Click(object sender, RoutedEventArgs e)
+        public void button_equal_Click(object sender, RoutedEventArgs e)
         {
-            //
+            if (!string.IsNullOrWhiteSpace(Wyswietlacz.TextBlock_display.Text))
+                Calc.SecondValue = Convert.ToDouble(Wyswietlacz.TextBlock_display.Text);
+            else
+                Calc.SecondValue = 0;
+            var returnValue = Calc.WykonajObliczenia(Calc.FirstValue, Calc.SecondValue, Calc.Method);
+            Wyswietlacz.TextBlock_display.Text = returnValue.ToString();
         }
 
-        private void button_equal_Click(object sender, RoutedEventArgs e)
+        public void button0_Click(object sender, RoutedEventArgs e)
         {
-            //
+            Wyswietlacz.TextBlock_display.Text += "0";
         }
 
-        private void button0_Click(object sender, RoutedEventArgs e)
+        public void button_clear_Click(object sender, RoutedEventArgs e)
         {
-            //
-        }
-
-        private void button_clear_Click(object sender, RoutedEventArgs e)
-        {
-            //
+            Wyswietlacz.TextBlock_display.Text = "";
         }
     }
 }
